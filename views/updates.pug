@@ -1,0 +1,22 @@
+//- ** This is a sample of a pug template and how it uses the data passed to it from index.js.
+
+doctype html
+html(lang="en")
+    head
+        title Update processor info
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        .form-wrapper
+            p Name #{data.name}
+            p Base Clock: #{data.base_clock_in_ghz}
+            p Core count: #{data.core_count}
+            form(method="POST")
+                label(for="newValName") Name
+                input(type="text" name="newValName" id="newValName")
+                label(for="newValBaseClock") Base Clock
+                input(type="text" name="newValBaseClock" id="newValBaseClock")
+                label(for="newValCoreCount") Core count
+                input(type="text" name="newValCoreCount" id="newValCoreCount")
+                input(type="submit" value="Submit")
+
+        a(href="/") Back to processors

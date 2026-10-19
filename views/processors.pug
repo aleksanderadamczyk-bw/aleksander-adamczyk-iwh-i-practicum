@@ -1,0 +1,26 @@
+//- ** This is a sample of a pug template and how it uses the data passed to it from index.js.
+
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body    
+        h1 Processors
+        h3 Add a new proc - #[a(href="/create-cobj")| Add]
+        table
+            tr
+                th Processor model
+                th Name
+                th Base clock (GHz)
+                th Core count
+                th Edit
+            each proc in data
+                tr
+                    td #{proc.properties.processor_model}
+                    td #{proc.properties.name}
+                    td #{proc.properties.base_clock_in_ghz}
+                    td #{proc.properties.core_count}
+                    td
+                        a(href=`/update-cobj?recordId=${proc.id}`) Edit 
